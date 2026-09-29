@@ -3,7 +3,7 @@ import { addNote, deleteNote, getNotes,updateNote } from "./notes.controllers.js
 import { verifyToken } from "../../middleware/verifyToken.js"
 import { addNoteValidation, updateNoteValidation } from "./notes.validation.js"
 import { validate } from "../../middleware/validate.js"
-import { checkUser } from "../../Middleware/checkUser.js"
+import { checkUser } from "../../middleware/checkUser.js"
 
 export const Noterouter = Router()
 
