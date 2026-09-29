@@ -9,6 +9,7 @@ import { userRouter } from './src/modules/users/users.routes.js'
 import { AppError } from "./src/utils/appError.js";
 import { globalError } from './src/utils/globalError.js'
 import { Noterouter } from './src/modules/notes/notes.routes.js'
+import cors from "cors"
 const app = express()
 const port = 3000
 
