@@ -14,8 +14,17 @@ const app = express()
 const port = 3000
 
 app.use(cors())
-dbConnection()
 app.use(express.json())
+
+app.use(async (req, res, next) => {
+    try {
+        await dbConnection(); // Guarantees the cloud db is ready before next() runs
+        next();
+    } catch (error) {
+        next(new AppError("Failed to connect to database", 500));
+    }
+});
+
 app.use("/users",userRouter)
 app.use("/notes",Noterouter)
 
