@@ -19,12 +19,12 @@ app.use(express.json())
 app.use("/users",userRouter)
 app.use("/notes",Noterouter)
 
+app.get('/', (req, res) => res.send('Helo World!'))
 app.use((req,res,next)=>{
     next(new AppError(`route not found${req.originalUrl}`,404))
 })
 
 app.use(globalError)
 
-app.get('/', (req, res) => res.send('Hello World!'))
 app.listen(port, () => console.log(`Example app listening on port ${port}!`)) 
 
